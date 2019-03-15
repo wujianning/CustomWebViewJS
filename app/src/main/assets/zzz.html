@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="utf-8">
+    <title>shouldOverrideUrlLoading ()拦截 url</title>
+
+
+    <script>
+         function callAndroid1(){
+            /*约定的url协议为：js://webview?arg1=111&arg2=222*/
+            document.location = "js://webview?arg1=111&arg2=222";
+         }
+
+             function callAndroid2(){
+            /*不拦截 直接跳转*/
+            document.location = "https://blog.csdn.net/weixin_37730482/article/category/6876458";
+         }
+      </script>
+</head>
+
+
+<!-- 点击按钮则调用callAndroid（）方法  -->
+<body>
+<button type="button" id="button1" onclick="callAndroid1()">点击调用Android代码 拦截url</button>
+
+<button type="button" id="button2" onclick="callAndroid2()">点击调用Android代码 不拦截url</button>
+</body>
+</html>

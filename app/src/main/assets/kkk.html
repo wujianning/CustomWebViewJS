@@ -1,0 +1,51 @@
+<html>
+    <head>
+            <meta http-equiv = "Content-Type" content="text/html;charset=UTF-8"
+            <title>测试Js的三种不同对话框</title>
+            <script language="JavaScript">
+                function alertFun()
+                {
+                    alert("Js的Alert警告对话框弹起!");
+                }
+                function confirmFun()
+                {
+                    if(confirm("访问个人主页?"))
+                    {location.href = "https://blog.csdn.net/weixin_37730482/article/category/6876458";}
+                    else alert("取消访问!");
+                }
+                function promptFun()
+                {
+                    var word = prompt("Prompt对话框","");
+                    if(word)
+                    {
+                        alert("你输入了:"+word)
+                    }else{alert("呵呵,你什么都没写!");}
+                }
+		
+		       function showAndroidToJsWithParameter(msg)
+			   {
+                   alert("Android 调用 JS 并传递参数："+msg);
+               }
+		
+            </script>
+    </head>
+ 
+ 
+    <body>
+        <p>三种对话框的使用</p>
+ 
+ 
+        <p>Alert对话框</p>
+        <p>
+                <input type="submit" name = "Submit1" value="点击显示JS的Alert对话框" onclick="alertFun()"/>
+        </p>
+        <p>Confirm对话框</p>
+        <p>
+                <input type="submit" name = "Submit2" value="点击显示JS的Confirm对话框" onclick="confirmFun()"/>
+        </p>
+        <p>Prompt对话框</p>
+        <p>
+                <input type="submit" name = "Submit3" value="点击显示JS的Prompt对话框" onclick="promptFun()"/>
+        </p>
+    </body>
+</html>

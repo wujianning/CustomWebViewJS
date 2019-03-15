@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/activity_webview_textview1"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/colorPrimary"
+        android:text="Android通过WebView的loadUrl方法调用JS"
+        android:textColor="#FFFFFF"
+        android:layout_margin="20dp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/activity_webview_textview2"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/colorPrimary"
+        android:text="Android通过WebView的evaluateJavascript方法调用JS"
+        android:textColor="#FFFFFF"
+        android:layout_margin="20dp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/activity_webview_textview3"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/colorPrimary"
+        android:text="JS通过WebView的addJavascriptInterface调用Android"
+        android:textColor="#FFFFFF"
+        android:layout_margin="20dp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/activity_webview_textview4"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/colorPrimary"
+        android:text="JS通过WebView的shouldOverrideUrlLoading调用Android"
+        android:textColor="#FFFFFF"
+        android:layout_margin="20dp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/activity_webview_textview5"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/colorPrimary"
+        android:text="JS通过WebView的onJsAlert()+onJsConfirm()+onJsPrompt()调用Android"
+        android:textColor="#FFFFFF"
+        android:layout_margin="20dp"
+        android:gravity="center"/>
+
+
+</LinearLayout>
