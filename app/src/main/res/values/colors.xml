@@ -3,4 +3,8 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="app_background_and_linecolor">#66cccccc</color>
+    <color name="webview_progressbarbg_color">#03B869</color>
+
 </resources>

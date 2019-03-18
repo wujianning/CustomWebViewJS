@@ -8,10 +8,26 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="#FFFFFF"
+        android:gravity="center"
         android:text="X5WebView"
-        android:textSize="16sp"
-        android:textStyle="bold"
         android:textColor="#000000"
-        android:gravity="center"/>
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <ProgressBar
+        android:id="@+id/activity_x5webview_progressbar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:progressDrawable="@drawable/progressbar"
+        android:visibility="gone" />
+
+    <com.wjn.customwebviewjs.X5WebView
+        android:id="@+id/activity_x5webview_x5webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+    </com.wjn.customwebviewjs.X5WebView>
 
 </LinearLayout>
