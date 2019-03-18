@@ -36,7 +36,7 @@ public class X5WebView extends WebView {
     private List<String> newList;
 
     /**
-     * 构造方法1
+     * 构造方法
      * */
 
     public X5WebView(Context context) {
@@ -45,7 +45,7 @@ public class X5WebView extends WebView {
     }
 
     /**
-     * 构造方法2
+     * 构造方法
      * */
 
     public X5WebView(Context context, AttributeSet attrs) {
@@ -54,7 +54,7 @@ public class X5WebView extends WebView {
     }
 
     /**
-     * 构造方法3
+     * 构造方法
      * */
 
     public X5WebView(Context context, AttributeSet attrs, int defStyleAttr) {
