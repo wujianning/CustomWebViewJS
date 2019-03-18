@@ -23,6 +23,7 @@ public class WebViewSettingsUtils {
         settings.setJavaScriptCanOpenWindowsAutomatically(true);//支持通过JS打开新窗口
         settings.setLoadWithOverviewMode(true);//缩放至屏幕的大小
         settings.setLoadsImagesAutomatically(true);//支持自动加载图片
+        settings.setSavePassword(false);//关闭密码保存提醒 如果选择”是”，密码会被明文保到 /data/data/com.package.name/databases/webview.db 中，这样就有被盗取密码的危险
     }
 
 }

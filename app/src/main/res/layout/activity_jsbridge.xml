@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/activity_jsbridge_textview1"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/colorPrimary"
+        android:text="Android通过JsBridge调用JS"
+        android:textColor="#FFFFFF"
+        android:layout_margin="20dp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/activity_jsbridge_textview111"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/colorPrimary"
+        android:text="Android通过JsBridge调用JS111"
+        android:textColor="#FFFFFF"
+        android:layout_margin="20dp"
+        android:gravity="center"/>
+
+    <com.github.lzyzsd.jsbridge.BridgeWebView
+        android:id="@+id/activity_jsbridge_bridgewebview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.github.lzyzsd.jsbridge.BridgeWebView>
+
+
+</LinearLayout>

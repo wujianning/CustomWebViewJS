@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
         textView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent=new Intent(MainActivity.this,ThirdActivity.class);
-//                startActivity(intent);
+                Intent intent=new Intent(MainActivity.this,JsBridgeActivity.class);
+                startActivity(intent);
             }
         });
 

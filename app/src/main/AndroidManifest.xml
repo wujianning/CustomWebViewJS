@@ -16,6 +16,7 @@
         <activity android:name=".WebViewAddJavaScriptInterfaceActivity"></activity>
         <activity android:name=".WebViewShouldOverrideUrlLoadingActivity"></activity>
         <activity android:name=".WebViewJsDialogActivity"></activity>
+        <activity android:name=".JsBridgeActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
