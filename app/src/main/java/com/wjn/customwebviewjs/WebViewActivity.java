@@ -117,6 +117,15 @@ public class WebViewActivity extends AppCompatActivity {
             }
         });
 
+        TextView textView6=findViewById(R.id.activity_webview_textview6);
+        textView6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(WebViewActivity.this,WebViewAndroidJSActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 }

@@ -54,5 +54,15 @@
         android:layout_margin="20dp"
         android:gravity="center"/>
 
+    <TextView
+        android:id="@+id/activity_webview_textview6"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/colorPrimary"
+        android:text="JS与Android通过WebView完成相机相册并在JS显示"
+        android:textColor="#FFFFFF"
+        android:layout_margin="20dp"
+        android:gravity="center"/>
+
 
 </LinearLayout>

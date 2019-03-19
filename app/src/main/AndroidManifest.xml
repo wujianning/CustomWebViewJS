@@ -7,7 +7,11 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
+    <!-- 相机权限 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 存储卡 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".MyApplication"
@@ -23,6 +27,7 @@
         <activity android:name=".WebViewShouldOverrideUrlLoadingActivity"></activity>
         <activity android:name=".WebViewJsDialogActivity"></activity>
         <activity android:name=".JsBridgeActivity"></activity>
+        <activity android:name=".WebViewAndroidJSActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,6 +37,18 @@
         </activity>
         <activity android:name=".X5WebViewActivity" />
         <activity android:name=".WebViewActivity" />
+
+        <!-- 7.0及以上相机操作 -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.wjn.customwebviewjs.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
+
     </application>
 
 </manifest>

@@ -1,11 +1,14 @@
 package com.wjn.customwebviewjs;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.tencent.smtt.sdk.WebChromeClient;
 import com.tencent.smtt.sdk.WebView;
@@ -15,7 +18,7 @@ public class X5WebViewActivity extends AppCompatActivity {
 
     private ProgressBar progressBar;
     private X5WebView x5WebView;
-    private String homeurl = "https://blog.csdn.net/weixin_37730482";
+    private String url = "file:///android_asset/hhh.html";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +51,38 @@ public class X5WebViewActivity extends AppCompatActivity {
     private void initView() {
         progressBar=findViewById(R.id.activity_x5webview_progressbar);
         x5WebView = findViewById(R.id.activity_x5webview_x5webview);
-        x5WebView.loadUrl(homeurl);
+        x5WebView.loadUrl(url);
         x5WebView.setWebViewClient(new myWebViewClient());
         x5WebView.setWebChromeClient(new myWebChromeClient());
+        // 添加js交互接口类，并起别名 AndroidWebView
+        x5WebView.addJavascriptInterface(new JavascriptInterface(this), "AndroidWebView");
+    }
+
+    /**
+     * Native JS 接口
+     */
+
+    @SuppressLint("JavascriptInterface")
+    public class JavascriptInterface {
+
+        /**
+         * 构造方法
+         */
+
+        private Context context;
+        public JavascriptInterface(Context context) {
+            this.context = context;
+        }
+
+        /**
+         * JS 调用 Android
+         */
+
+        @android.webkit.JavascriptInterface
+        public void showInfoFromJs(String name) {
+            Toast.makeText(context, "JS页面输入内容：" + name, Toast.LENGTH_LONG).show();
+        }
+
     }
 
     /**
@@ -62,9 +94,6 @@ public class X5WebViewActivity extends AppCompatActivity {
         @Override
         public boolean shouldOverrideUrlLoading(WebView webView, String s) {
             webView.loadUrl(s);
-            Log.d("TAG","homeurl----:"+homeurl);
-            Log.d("TAG","s----:"+s);
-            Log.d("TAG","-------------------------------");
             return true;
         }
     }

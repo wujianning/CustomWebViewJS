@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/activity_x5webview_textview"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="#FFFFFF"
