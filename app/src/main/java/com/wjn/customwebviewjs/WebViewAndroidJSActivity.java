@@ -27,6 +27,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.gson.JsonObject;
+import com.tencent.smtt.sdk.CacheManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -202,7 +203,6 @@ public class WebViewAndroidJSActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
             case StringConstant.REQUEST_CODE_SELECT_PICTURE://本地相册
-                //系统相册选取完成
                 Uri uri = data.getData();
                 if (uri != null) {
                     String filePath;
@@ -216,14 +216,12 @@ public class WebViewAndroidJSActivity extends AppCompatActivity {
                     JsonObject jsonObject = new JsonObject();
                     jsonObject.addProperty("image64", base64Image);
                     jsonObject.addProperty("message", "图片获取成功");
-                    Log.d("WebViewActivity", "jsonObject:" + jsonObject);
                     webView.loadUrl("javascript:sdk_nativeCallback(\'" + pickPhotoFuncNameName + "\',\'" + jsonObject + "\')");
                 }
                 break;
             case StringConstant.REQUEST_CODE_TAKE_PHOTO://手机拍照
                 bitmap=BitmapFactory.decodeFile(mPath);
                 String base64Image = Base64Util.bitmapToBase64(bitmap);
-                Log.d("WebViewActivity2", base64Image);
                 JsonObject jsonObject = new JsonObject();
                 jsonObject.addProperty("image64", base64Image);
                 webView.loadUrl("javascript:sdk_nativeCallback(\'" + takePhotofuncName + "\',\'" + jsonObject + "\')");
@@ -242,6 +240,25 @@ public class WebViewAndroidJSActivity extends AppCompatActivity {
         //删除剪切保存的图片
         File file = new File(FileHelper.getTheRootDirectory() + StringConstant.PICTURTemporary_Path);
         Base64Util.deleteFile(file);
+        //删除WebView缓存
+        destory();
+    }
+
+    /**
+     * 删除WebView缓存
+     * */
+
+    private void destory() {
+        File file = CacheManager.getCacheFileBaseDir();
+        if (file !=null && file.exists() && file.isDirectory()){
+            for (File item : file.listFiles()) {
+                item.delete();
+            }
+            file.delete();
+        }
+        deleteDatabase("webview.db");
+        deleteDatabase("webviewCache.db");
         webView.destroy();
     }
+
 }
