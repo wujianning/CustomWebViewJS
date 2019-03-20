@@ -14,11 +14,13 @@ import android.widget.Toast;
 import com.github.lzyzsd.jsbridge.BridgeHandler;
 import com.github.lzyzsd.jsbridge.BridgeWebView;
 import com.github.lzyzsd.jsbridge.CallBackFunction;
+import com.github.lzyzsd.jsbridge.DefaultHandler;
 
 public class JsBridgeActivity extends AppCompatActivity {
 
     private TextView textView;
     private TextView textView111;
+    private TextView textView2;
     private BridgeWebView bridgeWebView;
 
     @Override
@@ -35,8 +37,10 @@ public class JsBridgeActivity extends AppCompatActivity {
     private void initView() {
         textView=findViewById(R.id.activity_jsbridge_textview1);
         textView111=findViewById(R.id.activity_jsbridge_textview111);
+        textView2=findViewById(R.id.activity_jsbridge_textview2);
         bridgeWebView=findViewById(R.id.activity_jsbridge_bridgewebview);
         bridgeWebView.setWebChromeClient(new myWebChromeClient());
+        bridgeWebView.loadUrl("file:///android_asset/lll.html");
 
         //Android 通过 JSBridge 调用 JS
         textView.setOnClickListener(new View.OnClickListener() {
@@ -83,7 +87,30 @@ public class JsBridgeActivity extends AppCompatActivity {
             }
         });
 
-        bridgeWebView.loadUrl("file:///android_asset/lll.html");
+        //Android 通过 JSBridge 调用 默认JS bridge.init (不需要配置handlerName)
+        textView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bridgeWebView.send("Android端通过调用JS默认方法,传递给JS的参数", new CallBackFunction() {
+                    @Override
+                    public void onCallBack(String data) {
+                        //JS传递给Android
+                        Toast.makeText(JsBridgeActivity.this,  data, Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+        });
+
+        //JS 通过 JSBridge 调用 Android默认
+        bridgeWebView.setDefaultHandler(new DefaultHandler(){
+
+            @Override
+            public void handler(String data, CallBackFunction function) {
+                super.handler(data, function);
+                Toast.makeText(JsBridgeActivity.this, data, Toast.LENGTH_SHORT).show();
+                function.onCallBack("JS 通过 JSBridge 调用 Android默认");
+            }
+        });
     }
 
     /**
